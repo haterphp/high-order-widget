@@ -1,16 +1,19 @@
 {
-	"name": "high-order-widget",
-	"version": "1.3.0",
+	"name": "high-order-widget-react",
+	"version": "0.0.1",
 	"description": "External widget classes for managing react components",
 	"type": "module",
-	"main": "./dist/cjs/index.js",
-	"module": "./dist/esm/index.js",
-	"types": "./dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/haterphp/high-order-widget.git"
+	},
 	"scripts": {
-		"build:rollup": "rollup -c --configPlugin typescript --bundleConfigAsCjs"
+		"build:rollup": "rollup -c --configPlugin typescript --bundleConfigAsCjs",
+		"build": "./build.sh",
+		"publish-lib": "cd ./lib_build && npm publish"
 	},
 	"files": [
-		"dist",
+		"lib",
 		"LICENSE",
 		"README.md"
 	],
