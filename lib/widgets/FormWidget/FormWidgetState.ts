@@ -1,4 +1,4 @@
-import { AbstarctState } from "../../core/State/AbstractState"
+import { AbstractState } from "../../core/State/AbstractState"
 
 type FormFieldsKeys<TFormFields extends object> = (keyof TFormFields)[]
 
@@ -7,7 +7,7 @@ interface IBaseFormWidgetStatePayload {}
 export type IFormWidgetState<TFormFields> = TFormFields & IBaseFormWidgetStatePayload
 export type IFormWidgetStatePayload<TFormFields extends object> = { formFields: TFormFields } & IBaseFormWidgetStatePayload
 
-export class FormWidgetState<TFormFields extends object> extends AbstarctState<TFormFields> {
+export class FormWidgetState<TFormFields extends object> extends AbstractState<TFormFields> {
 	private __formKeys: FormFieldsKeys<TFormFields>
 
 	constructor(payload: IFormWidgetStatePayload<TFormFields>) {

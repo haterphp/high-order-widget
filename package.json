@@ -1,19 +1,21 @@
 {
 	"name": "high-order-widget-react",
-	"version": "0.0.1",
+	"version": "0.0.4",
 	"description": "External widget classes for managing react components",
 	"type": "module",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/haterphp/high-order-widget.git"
 	},
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"scripts": {
 		"build:rollup": "rollup -c --configPlugin typescript --bundleConfigAsCjs",
 		"build": "./build.sh",
 		"publish-lib": "cd ./lib_build && npm publish"
 	},
 	"files": [
-		"lib",
+		"dist",
 		"LICENSE",
 		"README.md"
 	],
@@ -27,6 +29,9 @@
 	],
 	"author": "haterphp",
 	"license": "MIT",
+	"peerDependencies": {
+		"react": ">=18"
+	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^25.0.7",
 		"@rollup/plugin-node-resolve": "^15.2.3",

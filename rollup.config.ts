@@ -2,8 +2,9 @@ import {globSync} from 'glob'
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import {InputOption, RollupOptions} from 'rollup'
+import {RollupOptions} from 'rollup'
 
+import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import external from 'rollup-plugin-peer-deps-external';
@@ -21,7 +22,7 @@ const inputFiles = Object.fromEntries(
 
 export default [
 	{
-		input: inputFiles,
+		input: './lib/index.ts',
 		output: {
 			format: 'es',
 			dir: 'dist',
@@ -29,12 +30,13 @@ export default [
 		},
 		plugins: [
 			external(),
+			resolve(),
 			commonjs({ extensions: ['.js', '.ts', '.jsx', '.tsx'] }),
-			typescript({tsconfig: './tsconfig.json', declarationDir: path.join(__dirname, 'dist/types')}),
+			typescript({ tsconfig: './tsconfig.json' }),
 		],
 	},
 	{
-		input: inputFiles,
+		input: './lib/index.ts',
 		output: {
 			format: 'es',
 			dir: 'dist',

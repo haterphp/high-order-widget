@@ -1,4 +1,4 @@
-import { AbstarctState } from "../../core/State/AbstractState";
+import { AbstractState } from "../../core/State/AbstractState";
 import { Route, RouteID } from "./Route";
 
 export interface IRouterWidgetState {
@@ -12,7 +12,7 @@ interface IRouterWidgetStatePayload {
 	routes: Route[]
 }
 
-export class RouterWidgetState extends AbstarctState<IRouterWidgetState> {
+export class RouterWidgetState extends AbstractState<IRouterWidgetState> {
 	constructor(payload: IRouterWidgetStatePayload) {
 		const currentRouteId = RouterWidgetState.getDefaultRoute(payload.defaultRouteId, payload.routes)
 		const currentRoute = RouterWidgetState.getRouteByRouteId(currentRouteId, payload.routes)

@@ -6,7 +6,7 @@ npm install
 npm run build:rollup;
 
 mkdir ./lib_build
-cp -ar ./dist/. ./lib_build/lib
+cp -ar ./dist/. ./lib_build/dist
 rm -rf ./dist
 
 cp ./package.json ./lib_build

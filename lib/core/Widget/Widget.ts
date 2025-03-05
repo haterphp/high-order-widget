@@ -1,21 +1,21 @@
 import { JSX } from "react";
-import { AbstarctState } from "../State/AbstractState";
+import { AbstractState } from "../State/AbstractState";
 import { IMountable } from "../Mountable/Mountable";
 
-export interface IWidgetViewProps<TStateObject extends object, TState extends AbstarctState<TStateObject>> extends IMountable {
+export interface IWidgetViewProps<TStateObject extends object, TState extends AbstractState<TStateObject>> extends IMountable {
 	state: TState
 }
 
 interface IWidgetCreatePayload<
 	TStateObject extends object,
-	TState extends AbstarctState<TStateObject>
+	TState extends AbstractState<TStateObject>
 > {
 	state: TState
 }
 
 export abstract class Widget<
 	TStateObject extends object,
-	TState extends AbstarctState<TStateObject>,
+	TState extends AbstractState<TStateObject>,
 	TWidgetViewProps extends IWidgetViewProps<TStateObject, TState> = IWidgetViewProps<TStateObject, TState>
 > {
 	protected _state: TState

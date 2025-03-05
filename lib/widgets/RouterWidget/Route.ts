@@ -1,17 +1,17 @@
-import { AbstarctState } from "../../core/State/AbstractState"
+import { AbstractState } from "../../core/State/AbstractState"
 import {Widget} from "../../core/Widget/Widget"
 
 export type RouteID = string | number
 
 export type WidgetFactory<
 	TStateObject extends object = any,
-	TState extends AbstarctState<TStateObject> = AbstarctState<TStateObject>,
+	TState extends AbstractState<TStateObject> = AbstractState<TStateObject>,
 	TWidget extends Widget<TStateObject, TState> = Widget<TStateObject, TState>
 > = () => TWidget
 
 export class Route<
 	TStateObject extends object = any,
-	TState extends AbstarctState<TStateObject> = AbstarctState<TStateObject>,
+	TState extends AbstractState<TStateObject> = AbstractState<TStateObject>,
 	TWidget extends Widget<TStateObject, TState> = Widget<TStateObject, TState>
 > {
 	private __routeId: RouteID
@@ -33,7 +33,7 @@ export class Route<
 
 	public static new<
 		TStateObject extends object = any,
-		TState extends AbstarctState<TStateObject> = AbstarctState<TStateObject>,
+		TState extends AbstractState<TStateObject> = AbstractState<TStateObject>,
 		TWidget extends Widget<TStateObject, TState> = Widget<TStateObject, TState>
 	>(routeId: string, widget: WidgetFactory<TStateObject, TState, TWidget>): Route<TStateObject, TState, TWidget> {
 		return new Route(routeId, widget)

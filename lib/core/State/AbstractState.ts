@@ -3,7 +3,7 @@ import { StateObserver, StateObserverNotifyFunction, StatePublisher } from "./Ab
 
 type ValueFactory<TStateObject, TKey extends keyof TStateObject> = (value: TStateObject[TKey]) => TStateObject[TKey]
 
-export abstract class AbstarctState<TStateObject extends object> implements IMountable {
+export abstract class AbstractState<TStateObject extends object> implements IMountable {
 	private __stateObject: TStateObject
 
 	private __publisher: StatePublisher<TStateObject>
